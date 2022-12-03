@@ -5,7 +5,7 @@
 
     <main class="overflow-hidden ">
         <!--Start Breadcrumb Style2-->
-        <section class="breadcrumb-area" style="background-image: url(assets/images/inner-pages/breadcum-bg.png);">
+        <section class="breadcrumb-area" style="background-image: url({{asset('/images/inner-pages/breadcum-bg.png')}});">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
