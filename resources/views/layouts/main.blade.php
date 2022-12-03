@@ -29,6 +29,8 @@
     <link rel="stylesheet" href="{{asset('css/plugin/animate.css')}}">
     <!-- Style Css -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
 </head>
 
@@ -202,8 +204,27 @@
                                                 <option>ENGLISH </option>
                                                 <option value="1">GERMAN</option>
                                                 <option value="4">FRENCH</option>
-                                            </select> </div> <a href="{{route('home')}}"> Sign In / Register </a>
+                                            </select>
+                                        </div>
+
+                                        @guest()
+                                             <a href="{{route('home')}}"> Войти/Зарегистрироваться </a>
+                                        @else
+                                            <div>
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </div>
+                                        @endguest
+
                                     </div>
+
                                 </div>
                             </div>
                         </div>
