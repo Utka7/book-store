@@ -10,8 +10,8 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $books = Books::paginate(3);
         $randomBooks = Books::get()->random(2);
-        return view('main.index', compact('books', 'randomBooks'));
+        $bestBooks = Books::get()->random(5);
+        return view('main.index', compact( 'randomBooks','bestBooks'));
     }
 }
