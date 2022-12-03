@@ -75,7 +75,7 @@
                             @foreach($bestBooks as $book)
                             <li class="products-three-single wow fadeInUp animated">
                                 <div class="products-three-single-img">
-                                    <a href="shop-details-3.html" class="d-block">
+                                    <a href="{{route('buy')}}" class="d-block">
                                         <img src="{{$book->preview_image}}" alt="" />
                                     </a>
 
