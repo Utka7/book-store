@@ -38,64 +38,23 @@
     <div class="catagory4 pt-60 pb-60">
         <div class="container">
             <div class="row mt--30">
-                @foreach($books as $book)
+                @foreach($randomBooks as $book)
                 <div class="col-lg-6 h-100 mt-30">
                     <a href="shop-grid.html" class="catagory-single one home3cat">
                         <img src="{{$book->preview_image}}" alt="#" class="background-img bg-img imgone">
                         <div class="content">
                             <div class="row w-100 h-100 align-items-center">
                                 <div class="col-xl-7 col-md-9">
-                                    <h5 class="wow animated fadeInUp" data-wow-delay="0.2s"> Shop & Save</h5>
-                                    <h3 class="wow animated fadeInUp" data-wow-delay="0.3s"> Exclusive Women Shoes
+                                    <h5 class="wow animated fadeInUp" data-wow-delay="0.2s"> {{$book->name}}</h5>
+                                    <h3 class="wow animated fadeInUp" data-wow-delay="0.3s"> {{$book->author->name}} {{$book->author->surname}}
                                     </h3>
-                                    <span class=" link wow animated fadeInUp" data-wow-delay="0.4s"> explore
-                                            now</span>
+                                    <span class=" link wow animated fadeInUp" data-wow-delay="0.4s"> {{$book->price}}₽</span>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
                 @endforeach
-                <div class="col-lg-6">
-                    <div class="row">
-                        <div class="co-12 mt-30 ">
-                            <a href="shop-grid.html" class="catagory-single home3cat">
-                                <img src="images/home-three/catbg-3.png" alt=""
-                                     class="background-img bg-img">
-                                <div class="content">
-                                    <div class="row w-100 h-100 align-items-center">
-                                        <div class="col-12">
-                                            <h5 class=" wow animated red fadeInUp" data-wow-delay="0.2s"> 20% Off
-                                            </h5>
-                                            <h3 class=" wow animated fadeInUp" data-wow-delay="0.3s"> Men Sneakers
-                                            </h3>
-                                            <span class="link wow animated fadeInUp" data-wow-delay="0.4s"> explore
-                                                    now</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-12 mt-30">
-                            <a href="shop-grid.html" class="catagory-single home3cat">
-                                <img src="images/home-three/catbg-2.png" alt=""
-                                     class="background-img bg-img">
-                                <div class="content">
-                                    <div class="row w-100 h-100 align-items-center">
-                                        <div class="col-xxl-6 col-lg-9">
-                                            <h5 class=" wow animated fadeInUp" data-wow-delay="0.2s"> New Products
-                                            </h5>
-                                            <h3 class=" wow animated fadeInUp" data-wow-delay="0.3s"> Women Sneakers
-                                            </h3>
-                                            <span class="link wow animated fadeInUp" data-wow-delay="0.4s"> explore
-                                                    now</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
