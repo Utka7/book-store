@@ -36,72 +36,22 @@
                                         <tr>
                                             <th class="">Product Name</th>
                                             <th class="price">Price</th>
-                                            <th>Quantity</th>
-                                            <th>Subtotal</th>
                                             <th class="hide-me"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <div class="thumb-box"> <a href="../../../../Users/Admin/OneDrive/Рабочий%20стол/karte-fashion-multipurpose-ecommerce-html-template/karte-fashion-multipurpose-ecommerce-html-template/shop-details-1.html" class="thumb">
-                                                        <img src="assets/images/shop/cart-product-thumb-1.jpg" alt="">
-                                                    </a> <a href="../../../../Users/Admin/OneDrive/Рабочий%20стол/karte-fashion-multipurpose-ecommerce-html-template/karte-fashion-multipurpose-ecommerce-html-template/shop-details-1.html" class="title">
-                                                        <h5> Leather Bag </h5>
-                                                    </a> </div>
+                                                <div class="thumb-box">
+                                                        <h5> {{$book->name}} </h5>
+                                                    </div>
                                             </td>
-                                            <td>$250.00</td>
-                                            <td class="qty">
-                                                <div class="qtySelector text-center"> <span class="decreaseQty"><i
-                                                            class="flaticon-minus"></i> </span> <input type="number"
-                                                        class="qtyValue" value="1" /> <span class="increaseQty"> <i
-                                                            class="flaticon-plus"></i> </span> </div>
-                                            </td>
-                                            <td class="sub-total">$500.00</td>
+                                            <td>{{$book->price}}₽</td>
                                             <td>
                                                 <div class="remove"> <i class="flaticon-cross"></i> </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="thumb-box"> <a href="../../../../Users/Admin/OneDrive/Рабочий%20стол/karte-fashion-multipurpose-ecommerce-html-template/karte-fashion-multipurpose-ecommerce-html-template/shop-details-1.html" class="thumb">
-                                                        <img src="assets/images/shop/cart-product-thumb-2.jpg" alt="">
-                                                    </a> <a href="../../../../Users/Admin/OneDrive/Рабочий%20стол/karte-fashion-multipurpose-ecommerce-html-template/karte-fashion-multipurpose-ecommerce-html-template/shop-details-1.html" class="title">
-                                                        <h5> Blue Headphone </h5>
-                                                    </a> </div>
-                                            </td>
-                                            <td>$250.00</td>
-                                            <td class="qty">
-                                                <div class="qtySelector text-center"> <span class="decreaseQty"><i
-                                                            class="flaticon-minus"></i> </span> <input type="number"
-                                                        class="qtyValue" value="1" /> <span class="increaseQty"> <i
-                                                            class="flaticon-plus"></i> </span> </div>
-                                            </td>
-                                            <td class="sub-total">$500.00</td>
-                                            <td>
-                                                <div class="remove"> <i class="flaticon-cross"></i> </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="thumb-box"> <a href="../../../../Users/Admin/OneDrive/Рабочий%20стол/karte-fashion-multipurpose-ecommerce-html-template/karte-fashion-multipurpose-ecommerce-html-template/shop-details-1.html" class="thumb">
-                                                        <img src="assets/images/shop/cart-product-thumb-3.jpg" alt="">
-                                                    </a> <a href="../../../../Users/Admin/OneDrive/Рабочий%20стол/karte-fashion-multipurpose-ecommerce-html-template/karte-fashion-multipurpose-ecommerce-html-template/shop-details-1.html" class="title">
-                                                        <h5> Comport Chair </h5>
-                                                    </a> </div>
-                                            </td>
-                                            <td>$250.00</td>
-                                            <td class="qty">
-                                                <div class="qtySelector text-center"> <span class="decreaseQty"><i
-                                                            class="flaticon-minus"></i> </span> <input type="number"
-                                                        class="qtyValue" value="1" /> <span class="increaseQty"> <i
-                                                            class="flaticon-plus"></i> </span> </div>
-                                            </td>
-                                            <td class="sub-total">$500.00</td>
-                                            <td>
-                                                <div class="remove"> <i class="flaticon-cross"></i> </div>
-                                            </td>
-                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>

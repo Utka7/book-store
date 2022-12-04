@@ -68,6 +68,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/buy',['App\Http\Controllers\Main\BuyController', '__invoke'])->name('buy');
-
+Route::group([ 'prefix' => 'buybook'], function () {
+    Route::get('/{book}',['App\Http\Controllers\Main\BuyController', '__invoke'])->name('buy');
+});
 Auth::routes();
