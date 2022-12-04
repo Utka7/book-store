@@ -1,10 +1,10 @@
 <?php
 
 
-use App\Http\Controllers\Admin\Author\AuthorController;
-use App\Http\Controllers\Admin\Book\BookController;
-use App\Http\Controllers\Admin\Category\CategoryController;
-use App\Http\Controllers\Admin\Main\AdminController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AuthorController;
+use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,13 +57,13 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{book}', [BookController::class, 'delete'])->name('admin.book.delete');
     });
 
-    Route::get('/export', ['App\Http\Controllers\Admin\Export\ExportController', 'show'])->name('admin.export.export');
-    Route::get('/file-export-cat-x', ['App\Http\Controllers\Admin\export\ExportController', 'fileExportCategoryXLSX'])->name('export-category-xlsx');
-    Route::get('/file-export-book-x', ['App\Http\Controllers\Admin\export\ExportController', 'fileExportBookXLSX'])->name('export-book-xlsx');
-    Route::get('/file-export-author-x', ['App\Http\Controllers\Admin\export\ExportController', 'fileExportAuthorXLSX'])->name('export-author-xlsx');
-    Route::get('/file-export-cat-csv', ['App\Http\Controllers\Admin\export\ExportController', 'fileExportCategoryCSV'])->name('export-category-csv');
-    Route::get('/file-export-book-csv', ['App\Http\Controllers\Admin\export\ExportController', 'fileExportBookCSV'])->name('export-book-csv');
-    Route::get('/file-export-author-csv', ['App\Http\Controllers\Admin\export\ExportController', 'fileExportAuthorCSV'])->name('export-author-csv');
+    Route::get('/export', ['App\Http\Controllers\Admin\ExportController', 'show'])->name('admin.export.export');
+    Route::get('/file-export-cat-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportCategoryXLSX'])->name('export-category-xlsx');
+    Route::get('/file-export-book-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportBookXLSX'])->name('export-book-xlsx');
+    Route::get('/file-export-author-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportAuthorXLSX'])->name('export-author-xlsx');
+    Route::get('/file-export-cat-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportCategoryCSV'])->name('export-category-csv');
+    Route::get('/file-export-book-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportBookCSV'])->name('export-book-csv');
+    Route::get('/file-export-author-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportAuthorCSV'])->name('export-author-csv');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

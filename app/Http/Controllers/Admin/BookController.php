@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Book;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\book\StoreRequest;
 use App\Http\Requests\admin\book\UpdateRequest;
 use App\Models\Books;
-use App\Models\Authors;
 use Illuminate\Support\Facades\Storage;
-use PhpOffice\PhpSpreadsheet\Calculation\Category;
 
 class BookController extends Controller
 {
