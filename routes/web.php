@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Main\AdminController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,13 +26,13 @@ Route::group(['prefix' => 'admin'], function () {
     });
 
     Route::group(['namespace' => 'App\Http\Controllers\Admin\Category', 'prefix' => 'category'], function () {
-        Route::get('/', ['App\Http\Controllers\Admin\Category\IndexController', '__invoke'])->name('admin.category.index');
-        Route::get('/create', ['App\Http\Controllers\Admin\Category\СreateController', '__invoke'])->name('admin.category.create');
-        Route::post('/', ['App\Http\Controllers\Admin\Category\StoreController', '__invoke'])->name('admin.category.store');
-        Route::get('/{category}', ['App\Http\Controllers\Admin\Category\ShowController', '__invoke'])->name('admin.category.show');
-        Route::get('/{category}/edit', ['App\Http\Controllers\Admin\Category\EditController', '__invoke'])->name('admin.category.edit');
-        Route::patch('/{category}', ['App\Http\Controllers\Admin\Category\UpdateController', '__invoke'])->name('admin.category.update');
-        Route::delete('/{category}', ['App\Http\Controllers\Admin\Category\DeleteController', '__invoke'])->name('admin.category.delete');
+        Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
+        Route::get('/create', [CategoryController::class, 'create'])->name('admin.category.create');
+        Route::post('/', [CategoryController::class, 'store'])->name('admin.category.store');
+        Route::get('/{category}', [CategoryController::class, 'show'])->name('admin.category.show');
+        Route::get('/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
+        Route::patch('/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
+        Route::delete('/{category}', [CategoryController::class, 'delete'])->name('admin.category.delete');
     });
 
     Route::group(['namespace' => 'App\Http\Controllers\Admin\Author', 'prefix' => 'authors'], function () {
