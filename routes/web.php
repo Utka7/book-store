@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Admin\Author\AuthorController;
+use App\Http\Controllers\Admin\Book\BookController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Main\AdminController;
 use Illuminate\Support\Facades\Route;
@@ -47,13 +48,13 @@ Route::group(['prefix' => 'admin'], function () {
     });
 
     Route::group(['namespace' => 'App\Http\Controllers\Admin\Book', 'prefix' => 'books'], function () {
-        Route::get('/', ['App\Http\Controllers\Admin\Book\IndexController', '__invoke'])->name('admin.book.index');
-        Route::get('/create', ['App\Http\Controllers\Admin\Book\СreateController', '__invoke'])->name('admin.book.create');
-        Route::post('/', ['App\Http\Controllers\Admin\Book\StoreController', '__invoke'])->name('admin.book.store');
-        Route::get('/{book}', ['App\Http\Controllers\Admin\Book\ShowController', '__invoke'])->name('admin.book.show');
-        Route::get('/{book}/edit', ['App\Http\Controllers\Admin\Book\EditController', '__invoke'])->name('admin.book.edit');
-        Route::patch('/{book}', ['App\Http\Controllers\Admin\Book\UpdateController', '__invoke'])->name('admin.book.update');
-        Route::delete('/{book}', ['App\Http\Controllers\Admin\Book\DeleteController', '__invoke'])->name('admin.book.delete');
+        Route::get('/',  [BookController::class, 'index'])->name('admin.book.index');
+        Route::get('/create', [BookController::class, 'create'])->name('admin.book.create');
+        Route::post('/', [BookController::class, 'store'])->name('admin.book.store');
+        Route::get('/{book}', [BookController::class, 'show'])->name('admin.book.show');
+        Route::get('/{book}/edit', [BookController::class, 'edit'])->name('admin.book.edit');
+        Route::patch('/{book}', [BookController::class, 'update'])->name('admin.book.update');
+        Route::delete('/{book}', [BookController::class, 'delete'])->name('admin.book.delete');
     });
 
     Route::get('/export', ['App\Http\Controllers\Admin\Export\ExportController', 'show'])->name('admin.export.export');
