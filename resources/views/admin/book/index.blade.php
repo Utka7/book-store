@@ -55,7 +55,7 @@
                                             <td>{{$book -> name}}</td>
                                             <td>{{$book -> price}}</td>
                                             <td>{{$book -> rating}}</td>
-                                            <td>{{$book->author->surname}} {{$book->author->name}}</td>
+                                            <td>{{$book->author->name}} {{$book->author->surname}} </td>
                                             <td>{{$book->category->name}}</td>
                                             <td><a href="{{route('admin.book.show', $book->id)}}"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                             <td><a href="{{route('admin.book.edit', $book->id)}}"><i class="fa fa-pen" aria-hidden="true"></i></a></td>

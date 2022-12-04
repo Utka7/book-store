@@ -42,6 +42,22 @@
                                             <td>Название</td>
                                             <td>{{$book -> name}}</td>
                                         </tr>
+                                        <tr>
+                                            <td>Цена</td>
+                                            <td>{{$book -> price}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Рейтинг</td>
+                                            <td>{{$book -> rating}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Автор</td>
+                                            <td>{{$book->author->name}} {{$book->author->surname}} </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Категория</td>
+                                            <td>{{$book->category->name}}</td>
+                                        </tr>
 
                                         </tbody>
                                     </table>

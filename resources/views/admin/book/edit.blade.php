@@ -38,6 +38,30 @@
                                 <div class="text-danger" >Это поле необходимо заполнить</div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name='price' placeholder="Цена" value="{{$book->price}}">
+                            @error('price')
+                            <div class="text-danger" >Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name='rating' placeholder="Рейтинг" value="{{$book->rating}}">
+                            @error('rating')
+                            <div class="text-danger" >Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name='author_id' placeholder="ID автора" value="{{$book->author->id}}">
+                            @error('author_id')
+                            <div class="text-danger" >Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name='category_id' placeholder="ID категории" value="{{$book->category->id}}">
+                            @error('category_id')
+                            <div class="text-danger" >Это поле необходимо заполнить</div>
+                            @enderror
+                        </div>
                         <div class="w-25">
                             <input type="submit" class="btn btn-block btn-primary" value="Обновить">
                         </div>

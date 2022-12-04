@@ -24,11 +24,11 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'string',
-            'prise' => 'unsignedInteger',
-            'rating' => 'unsignedFloat',
-            'author_id' => 'id',
-            'category_id' => 'id'
+            'name' => 'required',
+            'prise' => 'required',
+            'rating' => 'required',
+            'author_id' => 'required',
+            'category_id' => 'required'
         ];
     }
 }
