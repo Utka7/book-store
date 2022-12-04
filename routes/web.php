@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\Author\AuthorController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\Main\AdminController;
 use Illuminate\Support\Facades\Route;
@@ -36,13 +37,13 @@ Route::group(['prefix' => 'admin'], function () {
     });
 
     Route::group(['namespace' => 'App\Http\Controllers\Admin\Author', 'prefix' => 'authors'], function () {
-        Route::get('/', ['App\Http\Controllers\Admin\Author\IndexController', '__invoke'])->name('admin.author.index');
-        Route::get('/create', ['App\Http\Controllers\Admin\Author\СreateController', '__invoke'])->name('admin.author.create');
-        Route::post('/', ['App\Http\Controllers\Admin\Author\StoreController', '__invoke'])->name('admin.author.store');
-        Route::get('/{author}', ['App\Http\Controllers\Admin\Author\ShowController', '__invoke'])->name('admin.author.show');
-        Route::get('/{author}/edit', ['App\Http\Controllers\Admin\Author\EditController', '__invoke'])->name('admin.author.edit');
-        Route::patch('/{author}', ['App\Http\Controllers\Admin\Author\UpdateController', '__invoke'])->name('admin.author.update');
-        Route::delete('/{author}', ['App\Http\Controllers\Admin\Author\DeleteController', '__invoke'])->name('admin.author.delete');
+        Route::get('/', [AuthorController::class, 'index'])->name('admin.author.index');
+        Route::get('/create', [AuthorController::class, 'create'])->name('admin.author.create');
+        Route::post('/', [AuthorController::class, 'store'])->name('admin.author.store');
+        Route::get('/{author}', [AuthorController::class, 'show'])->name('admin.author.show');
+        Route::get('/{author}/edit', [AuthorController::class, 'edit'])->name('admin.author.edit');
+        Route::patch('/{author}', [AuthorController::class, 'update'])->name('admin.author.update');
+        Route::delete('/{author}', [AuthorController::class, 'delete'])->name('admin.author.delete');
     });
 
     Route::group(['namespace' => 'App\Http\Controllers\Admin\Book', 'prefix' => 'books'], function () {
