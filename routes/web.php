@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ExportController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -65,13 +66,16 @@ Route::group(['middleware' => ['auth', 'isadmin'],'prefix' => 'admin'], function
 
     });
 
-    Route::get('/export', ['App\Http\Controllers\Admin\ExportController', 'show'])->name('admin.export.export');
-    Route::get('/file-export-cat-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportCategoryXLSX'])->name('export-category-xlsx');
-    Route::get('/file-export-book-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportBookXLSX'])->name('export-book-xlsx');
-    Route::get('/file-export-author-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportAuthorXLSX'])->name('export-author-xlsx');
-    Route::get('/file-export-cat-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportCategoryCSV'])->name('export-category-csv');
-    Route::get('/file-export-book-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportBookCSV'])->name('export-book-csv');
-    Route::get('/file-export-author-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportAuthorCSV'])->name('export-author-csv');
+    Route::get('/export', [ExportController::class, 'show'])->name('admin.export.export');
+    Route::get('/file-export-cat-x', [ExportController::class, 'fileExportCategoryXLSX'])->name('export-category-xlsx');
+    Route::get('/file-export-book-x', [ExportController::class, 'fileExportBookXLSX'])->name('export-book-xlsx');
+    Route::get('/file-export-author-x', [ExportController::class, 'fileExportAuthorXLSX'])->name('export-author-xlsx');
+    Route::get('/file-export-user-x', [ExportController::class, 'fileExportUserXLSX'])->name('export-user-xlsx');
+
+    Route::get('/file-export-user-csv', [ExportController::class, 'fileExportUserCSV'])->name('export-user-csv');
+    Route::get('/file-export-cat-csv', [ExportController::class, 'fileExportCategoryCSV'])->name('export-category-csv');
+    Route::get('/file-export-book-csv', [ExportController::class, 'fileExportBookCSV'])->name('export-book-csv');
+    Route::get('/file-export-author-csv', [ExportController::class, 'fileExportAuthorCSV'])->name('export-author-csv');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
