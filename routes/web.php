@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +28,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/', [AdminController::class, '__invoke'])->name('admin.main.index');
     });
 
-    Route::group(['namespace' => 'App\Http\Controllers\Admin\Category', 'prefix' => 'category'], function () {
+    Route::group(['prefix' => 'category'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
         Route::get('/create', [CategoryController::class, 'create'])->name('admin.category.create');
         Route::post('/', [CategoryController::class, 'store'])->name('admin.category.store');
@@ -37,7 +38,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{category}', [CategoryController::class, 'delete'])->name('admin.category.delete');
     });
 
-    Route::group(['namespace' => 'App\Http\Controllers\Admin\Author', 'prefix' => 'authors'], function () {
+    Route::group(['prefix' => 'authors'], function () {
         Route::get('/', [AuthorController::class, 'index'])->name('admin.author.index');
         Route::get('/create', [AuthorController::class, 'create'])->name('admin.author.create');
         Route::post('/', [AuthorController::class, 'store'])->name('admin.author.store');
@@ -47,7 +48,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{author}', [AuthorController::class, 'delete'])->name('admin.author.delete');
     });
 
-    Route::group(['namespace' => 'App\Http\Controllers\Admin\Book', 'prefix' => 'books'], function () {
+    Route::group(['prefix' => 'books'], function () {
         Route::get('/',  [BookController::class, 'index'])->name('admin.book.index');
         Route::get('/create', [BookController::class, 'create'])->name('admin.book.create');
         Route::post('/', [BookController::class, 'store'])->name('admin.book.store');
@@ -55,6 +56,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/{book}/edit', [BookController::class, 'edit'])->name('admin.book.edit');
         Route::patch('/{book}', [BookController::class, 'update'])->name('admin.book.update');
         Route::delete('/{book}', [BookController::class, 'delete'])->name('admin.book.delete');
+    });
+
+    Route::group(['prefix' => 'users'], function () {
+        Route::get('/',  [UserController::class, 'index'])->name('admin.user.index');
+
     });
 
     Route::get('/export', ['App\Http\Controllers\Admin\ExportController', 'show'])->name('admin.export.export');
@@ -70,7 +76,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group([ 'prefix' => 'buybook'], function () {
     Route::get('/{book}',['App\Http\Controllers\Main\BuyController', '__invoke'])->name('buy');
-
     Route::get('/{book}/edit',['App\Http\Controllers\Main\BuyController', 'store'])->name('buy.edit');
 
 });
