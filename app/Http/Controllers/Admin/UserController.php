@@ -16,12 +16,12 @@ class UserController extends Controller
         return view( 'admin.user.index', compact('users'));
     }
 
-//    public function delete(Authors $author)
-//    {
-//        $author -> delete();
-//        return redirect()->route('admin.author.index');
-//    }
-//
+    public function delete(User $user)
+    {
+        $user -> delete();
+        return redirect()->route('admin.user.index');
+    }
+
 //    public function edit(Authors $author)
 //    {
 //        return view('admin.author.edit', compact('author'));

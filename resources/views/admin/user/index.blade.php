@@ -56,7 +56,7 @@
                                             <td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                                             <td><a href="#"><i class="fa fa-pen" aria-hidden="true"></i></a></td>
                                             <td>
-                                                <form action="#" method="POST">
+                                                <form action="{{route('admin.user.delete',$user -> id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="border-0 bg-transparent">

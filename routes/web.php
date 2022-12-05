@@ -23,7 +23,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', ['App\Http\Controllers\Main\IndexController', '__invoke'])->name('main.index');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'isadmin'],'prefix' => 'admin'], function () {
+
     Route::group(['namespace' => 'admin\Main'], function () {
         Route::get('/', [AdminController::class, '__invoke'])->name('admin.main.index');
     });
@@ -60,6 +61,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'users'], function () {
         Route::get('/',  [UserController::class, 'index'])->name('admin.user.index');
+        Route::delete('/{user}',  [UserController::class, 'delete'])->name('admin.user.delete');
 
     });
 

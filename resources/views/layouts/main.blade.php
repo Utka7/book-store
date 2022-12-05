@@ -212,6 +212,11 @@
                                                 </form>
                                             </div>
                                         @endguest
+                                            @auth
+                                                @if(Auth::user()->isAdmin())
+                                                    <a href="{{route('admin.main.index')}}"> Войти в панель администратора </a>
+                                                @endif
+                                            @endauth
 
                                     </div>
 
