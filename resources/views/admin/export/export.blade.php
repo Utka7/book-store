@@ -24,13 +24,15 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
-                    <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-category-xlsx') }}">Экспорт категорий XLSX</a>
-                    <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-book-xlsx') }}">Экспорт книг XLSX</a>
+                    <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-category-xlsx') }}">Экспорт Категорий XLSX</a>
+                    <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-book-xlsx') }}">Экспорт Книг XLSX</a>
                     <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-author-xlsx') }}">Экспорт Авторов XLSX</a>
+                    <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-user-xlsx') }}">Экспорт Пользователей XLSX</a>
                 <div> </div>
                 <a class="btn btn-primary col-2 mr-2" href="{{ route('export-category-csv') }}">Экспорт категорий CSV</a>
                 <a class="btn btn-primary col-2 mr-2" href="{{ route('export-book-csv') }}">Экспорт книг CSV</a>
                 <a class="btn btn-primary col-2 mr-2" href="{{ route('export-author-csv') }}">Экспорт Авторов CSV</a>
+                <a class="btn btn-primary col-2 mr-2" href="{{ route('export-user-csv') }}">Экспорт Пользователей CSV</a>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </section>

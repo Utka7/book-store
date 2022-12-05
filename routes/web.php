@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ExportController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,12 +24,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', ['App\Http\Controllers\Main\IndexController', '__invoke'])->name('main.index');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', 'isadmin'],'prefix' => 'admin'], function () {
+
     Route::group(['namespace' => 'admin\Main'], function () {
         Route::get('/', [AdminController::class, '__invoke'])->name('admin.main.index');
     });
 
-    Route::group(['namespace' => 'App\Http\Controllers\Admin\Category', 'prefix' => 'category'], function () {
+    Route::group(['prefix' => 'category'], function () {
         Route::get('/', [CategoryController::class, 'index'])->name('admin.category.index');
         Route::get('/create', [CategoryController::class, 'create'])->name('admin.category.create');
         Route::post('/', [CategoryController::class, 'store'])->name('admin.category.store');
@@ -37,7 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{category}', [CategoryController::class, 'delete'])->name('admin.category.delete');
     });
 
-    Route::group(['namespace' => 'App\Http\Controllers\Admin\Author', 'prefix' => 'authors'], function () {
+    Route::group(['prefix' => 'authors'], function () {
         Route::get('/', [AuthorController::class, 'index'])->name('admin.author.index');
         Route::get('/create', [AuthorController::class, 'create'])->name('admin.author.create');
         Route::post('/', [AuthorController::class, 'store'])->name('admin.author.store');
@@ -47,7 +50,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{author}', [AuthorController::class, 'delete'])->name('admin.author.delete');
     });
 
-    Route::group(['namespace' => 'App\Http\Controllers\Admin\Book', 'prefix' => 'books'], function () {
+    Route::group(['prefix' => 'books'], function () {
         Route::get('/',  [BookController::class, 'index'])->name('admin.book.index');
         Route::get('/create', [BookController::class, 'create'])->name('admin.book.create');
         Route::post('/', [BookController::class, 'store'])->name('admin.book.store');
@@ -57,20 +60,28 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{book}', [BookController::class, 'delete'])->name('admin.book.delete');
     });
 
-    Route::get('/export', ['App\Http\Controllers\Admin\ExportController', 'show'])->name('admin.export.export');
-    Route::get('/file-export-cat-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportCategoryXLSX'])->name('export-category-xlsx');
-    Route::get('/file-export-book-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportBookXLSX'])->name('export-book-xlsx');
-    Route::get('/file-export-author-x', ['App\Http\Controllers\Admin\ExportController', 'fileExportAuthorXLSX'])->name('export-author-xlsx');
-    Route::get('/file-export-cat-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportCategoryCSV'])->name('export-category-csv');
-    Route::get('/file-export-book-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportBookCSV'])->name('export-book-csv');
-    Route::get('/file-export-author-csv', ['App\Http\Controllers\Admin\ExportController', 'fileExportAuthorCSV'])->name('export-author-csv');
+    Route::group(['prefix' => 'users'], function () {
+        Route::get('/',  [UserController::class, 'index'])->name('admin.user.index');
+        Route::delete('/{user}',  [UserController::class, 'delete'])->name('admin.user.delete');
+
+    });
+
+    Route::get('/export', [ExportController::class, 'show'])->name('admin.export.export');
+    Route::get('/file-export-cat-x', [ExportController::class, 'fileExportCategoryXLSX'])->name('export-category-xlsx');
+    Route::get('/file-export-book-x', [ExportController::class, 'fileExportBookXLSX'])->name('export-book-xlsx');
+    Route::get('/file-export-author-x', [ExportController::class, 'fileExportAuthorXLSX'])->name('export-author-xlsx');
+    Route::get('/file-export-user-x', [ExportController::class, 'fileExportUserXLSX'])->name('export-user-xlsx');
+
+    Route::get('/file-export-user-csv', [ExportController::class, 'fileExportUserCSV'])->name('export-user-csv');
+    Route::get('/file-export-cat-csv', [ExportController::class, 'fileExportCategoryCSV'])->name('export-category-csv');
+    Route::get('/file-export-book-csv', [ExportController::class, 'fileExportBookCSV'])->name('export-book-csv');
+    Route::get('/file-export-author-csv', [ExportController::class, 'fileExportAuthorCSV'])->name('export-author-csv');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group([ 'prefix' => 'buybook'], function () {
     Route::get('/{book}',['App\Http\Controllers\Main\BuyController', '__invoke'])->name('buy');
-
     Route::get('/{book}/edit',['App\Http\Controllers\Main\BuyController', 'store'])->name('buy.edit');
 
 });

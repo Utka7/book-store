@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\AuthorExport;
 use App\Exports\BookExport;
 use App\Exports\CategoryExport;
+use App\Exports\UserExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -23,12 +24,22 @@ class ExportController extends Controller
 
     public function fileExportBookXLSX()
     {
-        return Excel::download(new BookExport, 'category-book.xlsx');
+        return Excel::download(new BookExport, 'book-collection.xlsx');
     }
 
     public function fileExportAuthorXLSX()
     {
-        return Excel::download(new AuthorExport, 'category-author.xlsx');
+        return Excel::download(new AuthorExport, 'author-collection.xlsx');
+    }
+
+    public function fileExportUserXLSX()
+    {
+        return Excel::download(new UserExport, 'user-collection.xlsx');
+    }
+
+    public function fileExportUserCSV()
+    {
+        return Excel::download(new UserExport, 'user-collection.csv');
     }
 
     public function fileExportCategoryCSV()
@@ -38,12 +49,12 @@ class ExportController extends Controller
 
     public function fileExportBookCSV()
     {
-        return Excel::download(new BookExport, 'category-book.csv');
+        return Excel::download(new BookExport, 'book-collection.csv');
     }
 
     public function fileExportAuthorCSV()
     {
-        return Excel::download(new AuthorExport, 'category-author.csv');
+        return Excel::download(new AuthorExport, 'author-collection.csv');
     }
 
 }
