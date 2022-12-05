@@ -75,9 +75,16 @@
                             @foreach($bestBooks as $book)
                             <li class="products-three-single wow fadeInUp animated">
                                 <div class="products-three-single-img">
-                                    <a href="{{route('buy', $book->id)}}" class="d-block">
-                                        <img src="{{$book->preview_image}}" alt="" />
-                                    </a>
+                                    @guest()
+
+                                        <a href="{{route('home')}}" class="d-block">
+                                            <img src="{{$book->preview_image}}" alt="" />
+                                        </a>
+                                    @else
+                                        <a href="{{route('buy', $book->id)}}" class="d-block">
+                                            <img src="{{$book->preview_image}}" alt="" />
+                                        </a>
+                                    @endguest
 
                                     <a href="cart.html" class="addcart btn--primary style2">
                                         Add To Cart

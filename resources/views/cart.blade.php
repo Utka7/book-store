@@ -61,15 +61,10 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="cart-button-box">
-                            <div class="apply-coupon wow fadeInUp animated">
-                                <div class="apply-coupon-input-box mt-30 "> <input type="text" name="coupon-code"
-                                        value="" placeholder="Coupon Code"> </div>
-                                <div class="apply-coupon-button mt-30"> <button class="btn--primary style2"
-                                        type="submit">Apply Coupon</button> </div>
+                            <div class="cart-button-box-right wow fadeInUp animated ">
+                                <a href="{{route('buy.edit',$book->id)}}"   class="btn--primary mt-30">Купить</a>
                             </div>
-                            <div class="cart-button-box-right wow fadeInUp animated"> <button class="btn--primary mt-30"
-                                    type="submit">Continue Shopping</button> <button class="btn--primary mt-30"
-                                    type="submit">Update Cart</button> </div>
+
                         </div>
                     </div>
                 </div>
