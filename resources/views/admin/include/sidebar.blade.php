@@ -42,10 +42,18 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a href="{{route('admin.purchase.index')}}" class="nav-link">
+                    <i class="nav-icon far fa-image"></i>
+                    <p>
+                        Заказы
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{route('admin.export.export')}}" class="nav-link">
                     <i class="nav-icon far fa-image"></i>
                     <p>
-                        Эксопорт
+                        Экспорт
                     </p>
                 </a>
             </li>

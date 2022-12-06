@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class CheckIsAdmin
 {
     public function handle($request, Closure $next)
@@ -18,3 +17,4 @@ class CheckIsAdmin
         return $next($request);
     }
 }
+
