@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
-use App\Models\Books;
+use App\Models\Book;
 use App\Models\Pзurchases;
 use App\Models\User;
 use Carbon\Carbon;
@@ -11,14 +11,14 @@ use Illuminate\Http\Request;
 
 class BuyController extends Controller
 {
-    public function __invoke(Books $book)
+    public function __invoke(Book $book)
     {
-        $randomBooks = Books::get()->random(2);
-        $bestBooks = Books::get()->random(5);
+        $randomBooks = Book::get()->random(2);
+        $bestBooks = Book::get()->random(5);
         return view('cart', compact( 'book'));
     }
 
-    public function store(Books $book)
+    public function store(Book $book)
     {
         $user = auth()->user();
         $pзurchases = new Pзurchases;

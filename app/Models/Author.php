@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Authors extends Model
+class Author extends Model
 {
     use HasFactory;
 
@@ -13,7 +13,7 @@ class Authors extends Model
     protected $guarded = false;
 
     public function books(){
-        return $this->hasMany(Books::class, 'author_id', 'id');
+        return $this->hasMany(Book::class, 'author_id', 'id');
     }
 
     public function getName(){

@@ -5,28 +5,28 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\author\StoreRequest;
 use App\Http\Requests\admin\author\UpdateRequest;
-use App\Models\Authors;
+use App\Models\Author;
 
 class AuthorController extends Controller
 {
     public function index()
     {
-        $authors = Authors::all(); // Получение всех категорий из БД
+        $authors = Author::all(); // Получение всех категорий из БД
         return view( 'admin.author.index', compact('authors'));
     }
 
-    public function delete(Authors $author)
+    public function delete(Author $author)
     {
         $author -> delete();
         return redirect()->route('admin.author.index');
     }
 
-    public function edit(Authors $author)
+    public function edit(Author $author)
     {
         return view('admin.author.edit', compact('author'));
     }
 
-    public function show(Authors $author)
+    public function show(Author $author)
     {
         return view( 'admin.author.show', compact('author'));
     }
@@ -34,11 +34,11 @@ class AuthorController extends Controller
     public function store(StoreRequest $request)
     {
         $data = $request -> validated();
-        Authors::FirstOrcreate($data);
+        Author::FirstOrcreate($data);
         return redirect() -> route('admin.author.index');
     }
 
-    public function update(UpdateRequest $request, Authors $author)
+    public function update(UpdateRequest $request, Author $author)
     {
         $data = $request->validated();
         $author -> update($data);
