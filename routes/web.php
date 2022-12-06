@@ -7,6 +7,10 @@ use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ExportController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Main\BuyController;
+use App\Http\Controllers\Main\IndexController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', ['App\Http\Controllers\Main\IndexController', '__invoke'])->name('main.index');
+Route::get('/', [IndexController::class, '__invoke'])->name('main.index');
 
 
 Route::group(['middleware' => ['auth', 'isadmin'],'prefix' => 'admin'], function () {
@@ -78,12 +82,13 @@ Route::group(['middleware' => ['auth', 'isadmin'],'prefix' => 'admin'], function
     Route::get('/file-export-author-csv', [ExportController::class, 'fileExportAuthorCSV'])->name('export-author-csv');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group([ 'prefix' => 'buybook'], function () {
-    Route::get('/{book}',['App\Http\Controllers\Main\BuyController', '__invoke'])->name('buy');
-    Route::get('/{book}/edit',['App\Http\Controllers\Main\BuyController', 'store'])->name('buy.edit');
+    Route::get('/{book}',[BuyController::class, '__invoke'])->name('buy');
+    Route::get('/{book}/edit',[BuyController::class, 'store'])->name('buy.edit');
 
 });
 
 Auth::routes();
+
