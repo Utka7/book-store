@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\author\StoreRequest;
 use App\Http\Requests\admin\author\UpdateRequest;
-use App\Models\Authors;
+use App\Models\Author;
 use App\Models\User;
 
 class UserController extends Controller
@@ -22,12 +22,12 @@ class UserController extends Controller
         return redirect()->route('admin.user.index');
     }
 
-//    public function edit(Authors $author)
+//    public function edit(Author $author)
 //    {
 //        return view('admin.author.edit', compact('author'));
 //    }
 //
-//    public function show(Authors $author)
+//    public function show(Author $author)
 //    {
 //        return view( 'admin.author.show', compact('author'));
 //    }
@@ -35,11 +35,11 @@ class UserController extends Controller
 //    public function store(StoreRequest $request)
 //    {
 //        $data = $request -> validated();
-//        Authors::FirstOrcreate($data);
+//        Author::FirstOrcreate($data);
 //        return redirect() -> route('admin.author.index');
 //    }
 //
-//    public function update(UpdateRequest $request, Authors $author)
+//    public function update(UpdateRequest $request, Author $author)
 //    {
 //        $data = $request->validated();
 //        $author -> update($data);

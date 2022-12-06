@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Authors;
+use App\Models\Author;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class AuthorExport implements FromCollection
@@ -12,6 +12,6 @@ class AuthorExport implements FromCollection
     */
     public function collection()
     {
-        return Authors::all();
+        return Author::all();
     }
 }
