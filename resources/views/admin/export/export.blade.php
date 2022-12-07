@@ -28,11 +28,13 @@
                     <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-book-xlsx') }}">Экспорт Книг XLSX</a>
                     <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-author-xlsx') }}">Экспорт Авторов XLSX</a>
                     <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-user-xlsx') }}">Экспорт Пользователей XLSX</a>
+                <a class="btn btn-success col-2 mr-2 mb-3" href="{{ route('export-purchase-xlsx') }}">Экспорт Заказы XLSX</a>
                 <div> </div>
-                <a class="btn btn-primary col-2 mr-2" href="{{ route('export-category-csv') }}">Экспорт категорий CSV</a>
-                <a class="btn btn-primary col-2 mr-2" href="{{ route('export-book-csv') }}">Экспорт книг CSV</a>
+                <a class="btn btn-primary col-2 mr-2" href="{{ route('export-category-csv') }}">Экспорт Категорий CSV</a>
+                <a class="btn btn-primary col-2 mr-2" href="{{ route('export-book-csv') }}">Экспорт Книг CSV</a>
                 <a class="btn btn-primary col-2 mr-2" href="{{ route('export-author-csv') }}">Экспорт Авторов CSV</a>
                 <a class="btn btn-primary col-2 mr-2" href="{{ route('export-user-csv') }}">Экспорт Пользователей CSV</a>
+                <a class="btn btn-primary col-2 mr-2" href="{{ route('export-purchase-csv') }}">Экспорт Заказы CSV</a>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
         </section>

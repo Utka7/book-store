@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\AuthorExport;
 use App\Exports\BookExport;
 use App\Exports\CategoryExport;
+use App\Exports\PurchaseExport;
 use App\Exports\UserExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
@@ -35,6 +36,16 @@ class ExportController extends Controller
     public function fileExportUserXLSX()
     {
         return Excel::download(new UserExport, 'user-collection.xlsx');
+    }
+
+    public function fileExportPurchaseXLSX()
+    {
+        return Excel::download(new PurchaseExport, 'purchase-collection.xlsx');
+    }
+
+    public function fileExportPurchaseCSV()
+    {
+        return Excel::download(new PurchaseExport, 'purchase-collection.csv');
     }
 
     public function fileExportUserCSV()

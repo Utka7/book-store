@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AuthorController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ExportController;
+use App\Http\Controllers\Admin\PurchaseController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Main\BuyController;
@@ -64,6 +65,16 @@ Route::group(['middleware' => ['auth', 'isadmin'],'prefix' => 'admin'], function
         Route::delete('/{book}', [BookController::class, 'delete'])->name('admin.book.delete');
     });
 
+    Route::group(['prefix' => 'purchase'], function () {
+        Route::get('/',  [PurchaseController::class, 'index'])->name('admin.purchase.index');
+        Route::get('/create', [PurchaseController::class, 'create'])->name('admin.purchase.create');
+        Route::post('/', [PurchaseController::class, 'store'])->name('admin.purchase.store');
+        Route::get('/{purchase}', [PurchaseController::class, 'show'])->name('admin.purchase.show');
+        Route::get('/{purchase}/edit', [PurchaseController::class, 'edit'])->name('admin.purchase.edit');
+        Route::patch('/{purchase}', [PurchaseController::class, 'update'])->name('admin.purchase.update');
+        Route::delete('/{purchase}', [PurchaseController::class, 'delete'])->name('admin.purchase.delete');
+    });
+
     Route::group(['prefix' => 'users'], function () {
         Route::get('/',  [UserController::class, 'index'])->name('admin.user.index');
         Route::delete('/{user}',  [UserController::class, 'delete'])->name('admin.user.delete');
@@ -75,7 +86,9 @@ Route::group(['middleware' => ['auth', 'isadmin'],'prefix' => 'admin'], function
     Route::get('/file-export-book-x', [ExportController::class, 'fileExportBookXLSX'])->name('export-book-xlsx');
     Route::get('/file-export-author-x', [ExportController::class, 'fileExportAuthorXLSX'])->name('export-author-xlsx');
     Route::get('/file-export-user-x', [ExportController::class, 'fileExportUserXLSX'])->name('export-user-xlsx');
+    Route::get('/file-export-purchase-x', [ExportController::class, 'fileExportPurchaseXLSX'])->name('export-purchase-xlsx');
 
+    Route::get('/file-export-purchase-csv', [ExportController::class, 'fileExportPurchaseCSV'])->name('export-purchase-csv');
     Route::get('/file-export-user-csv', [ExportController::class, 'fileExportUserCSV'])->name('export-user-csv');
     Route::get('/file-export-cat-csv', [ExportController::class, 'fileExportCategoryCSV'])->name('export-category-csv');
     Route::get('/file-export-book-csv', [ExportController::class, 'fileExportBookCSV'])->name('export-book-csv');

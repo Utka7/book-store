@@ -40,7 +40,11 @@
             <div class="row mt--30">
                 @foreach($randomBooks as $book)
                 <div class="col-lg-6 h-100 mt-30">
-                    <a href="{{route('buy', $book->id)}}" class="catagory-single one home3cat">
+                    @guest()
+                        <a href="{{route('home', $book->id)}}" class="catagory-single one home3cat"> </a>
+                    @else
+                        <a href="{{route('buy', $book->id)}}" class="catagory-single one home3cat">
+                            @endguest
                         <img src="{{$book->preview_image}}" alt="#" class="background-img bg-img imgone">
                         <div class="content">
                             <div class="row w-100 h-100 align-items-center">
